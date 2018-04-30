@@ -5,4 +5,6 @@ class Friendship < ApplicationRecord
   validate do |friendship|
     errors.add(:base, 'can not self-friend') if friendship.user_id == friendship.friend_id
   end
+
+  # todo can't be friend if blacklisted
 end

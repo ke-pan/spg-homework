@@ -1,7 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+batman:
   email: batman@justiceleague.com
 
-two:
+superman:
   email: superman@justiceleague.com
+
+wonderwoman:
+  email: wonderwoman@justiceleague.com
+
+spiderman:
+  email: spiderman@avengers.com
+
+ironman:
+  email: ironman@avengers.com

@@ -1,0 +1,31 @@
+one:
+  user: superman
+  friend: batman
+
+two:
+  user: batman
+  friend: superman
+
+three:
+  user: superman
+  friend: spiderman
+
+four:
+  user: spiderman
+  friend: superman
+
+five:
+  user: ironman
+  friend: spiderman
+
+six:
+  user: spiderman
+  friend: ironman
+
+seven:
+  user: wonderwoman
+  friend: batman
+
+eight:
+  user: batman
+  friend: wonderwoman

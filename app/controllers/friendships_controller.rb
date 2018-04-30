@@ -14,8 +14,6 @@ class FriendshipsController < ApplicationController
   def validate_params
     if friendship_params[:friends].blank? || friendship_params[:friends].length < 2
       render json: { success: false, message: 'needs two emails'}, status: :bad_request
-    # elsif friendship_params[:friends].first == friendship_params[:friends].second
-    #   render json: { success: false, message: 'emails should be different'}, status: :bad_request
     end
   end
 
@@ -24,6 +22,6 @@ class FriendshipsController < ApplicationController
   end
 
   def find_user(email)
-    user = User.find_or_create_by!(email: email)
+    User.find_or_create_by!(email: email)
   end
 end
