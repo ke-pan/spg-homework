@@ -1,24 +1,43 @@
-# README
+# LOCAL SERVER SETUP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```bash
+bundle && rails s
+```
 
-Things you may want to cover:
+# APIs
 
-* Ruby version
+## Create a friend connection between two email addresses
 
-* System dependencies
+```bash
+curl -d '{"friends":["andy@example.com","john@example.com"]}' -H "Content-Type: application/json" -X POST http://localhost:3000/friendships
+```
 
-* Configuration
+## Retrieve the friends list for an email address
 
-* Database creation
+```bash
+curl -d '{"email":"andy@example.com"}' -H "Content-Type: application/json" -X GET http://localhost:3000/friends
+```
 
-* Database initialization
+## Retrieve the common friends list between two email addresses
 
-* How to run the test suite
+```bash
+curl -d '{"friends":["andy@example.com","john@example.com"]}' -H "Content-Type: application/json" -X GET http://localhost:3000/common_friends
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Subscribe to updates from an email address
 
-* Deployment instructions
+```bash
+curl -d '{"requestor":"lisa@example.com","target":"john@example.com"}' -H "Content-Type: application/json" -X POST http://localhost:3000/subscriptions
+```
 
-* ...
+## Block updates from an email address
+
+```bash
+curl -d '{"requestor":"andy@example.com","target":"john@example.com"}' -H "Content-Type: application/json" -X POST http://localhost:3000/blacklists
+```
+
+## Retrieve all email addresses that can receive updates from an email address
+
+```bash
+curl -d '{"sender":"john@example.com","text":"Hello World! kate@example.com"}' -H "Content-Type: application/json" -X GET http://localhost:3000/updates
+```
