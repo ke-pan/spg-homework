@@ -7,6 +7,12 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal({success: false, message: 'param is missing or the value is empty: target'}.to_json, response.body)
   end
 
+  test "should not create a subscription with same email" do
+    post subscriptions_url, params: { requestor: "lisa@example.com", target: "lisa@example.com" }
+    assert_response :bad_request
+    assert_equal({success: false, message: 'can not self-subscribe'}.to_json, response.body)
+  end
+
   test "should create a subscription" do
     assert_difference 'Subscription.count', 1 do
       post subscriptions_url, params: { requestor: "lisa@example.com", target: "john@example.com" }

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
     end
 
     def show_errors(e)
-        render json: { success: false, message: e.record.errors.full_messages }, status: :bad_request
+        render json: { success: false, message: e.record.errors.full_messages.first }, status: :bad_request
     end
 
     def show_not_found(e)
