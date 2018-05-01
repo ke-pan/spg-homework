@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  target_id: 1
+  user: wonderwoman
+  target: batman
 
 two:
-  user_id: 1
-  target_id: 1
+  user: wonderwoman
+  target: spiderman

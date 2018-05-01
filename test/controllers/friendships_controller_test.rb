@@ -16,6 +16,13 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
     assert_response :bad_request
   end
 
+  test "should not create friendships if got blocked" do
+    post friendships_url, params: {friends: [users(:spiderman).email, users(:wonderwoman).email]}
+    assert_response :bad_request
+    assert_equal({success: false, message: "user:#{users(:wonderwoman).id} blocks user:#{users(:spiderman).id}"}.to_json, response.body)
+  end
+
+
   test "should create friendships with valid params" do
     assert_difference 'Friendship.count', 2 do
       post friendships_url, params: {friends: ['abc@test.com', 'abc1@test.com']}
