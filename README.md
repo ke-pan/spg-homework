@@ -1,7 +1,7 @@
 # LOCAL SERVER SETUP
 
 ```bash
-bundle && rails s
+bundle && rails db:schema:load && rails s
 ```
 
 # APIs
